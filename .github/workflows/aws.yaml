@@ -28,19 +28,13 @@ jobs:
             - name: Deploy to aws EB
               uses: einaregilsson/beanstalk-deploy@21
               with: 
-                aws_access_key:
-                aws-secret_key:
-                enviropment_name:
-                version_lanel:
-                region:
+                aws_access_key:${{secrets.AWS_ACCESS_KEY_ID}}
+                aws-secret_key:${{secrets.AWS_SECRET_ACCESS_KEY}}
+                application_name: krypterings Api
+                enviropment_name: KrypteringsApi-env
+                version_label: ${{ github.run_id}}
+                region: eu-north-1
                 deployment_package: site.zip
-
-
-     
-on:
-    push:
-        branches:
-            -main
 
 
 
